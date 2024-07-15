@@ -7,7 +7,9 @@ Este projeto foi criado com [Angular CLI](https://github.com/angular/angular-cli
 Padrão para projetos Angular:
 
 Instalar o [Node.js](https://nodejs.org/pt)
+
 Instalar o Angular CLI: npm install -g @angular/cli@17
+
 Se for usar o Powershell: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 ## Servidor de Desenvolvimento
