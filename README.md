@@ -8,11 +8,11 @@ Padrão para projetos Angular:
 
 Instalar o [Node.js](https://nodejs.org/pt)
 
-Instalar o Angular CLI: npm install -g @angular/cli@17
+Instalar o Angular CLI: `npm install -g @angular/cli@17`
 
-Se for usar o Powershell: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Se for usar o Powershell: `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 
-Rodar o comando npm install após baixar o repositório
+Rodar o comando `npm install` após baixar o repositório
 
 ## Servidor de Desenvolvimento
 
