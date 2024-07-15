@@ -12,6 +12,8 @@ Instalar o Angular CLI: npm install -g @angular/cli@17
 
 Se for usar o Powershell: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
+Rodar o comando npm install após baixar o repositório
+
 ## Servidor de Desenvolvimento
 
 Use o comando `ng serve`. Navegue para `http://localhost:4200/`. A aplicação recarrega automaticamente toda vez que um arquivo é alterado.
