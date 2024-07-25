@@ -1,60 +1,61 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import jsonData from "./Passkeys.json"
+import jsonData from './Passkeys.json';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule, FormsModule],
   templateUrl: `./home.component.html`,
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
-  
-  apitoken:string = jsonData.MovieApiToken
-  apikey:string = jsonData.MovieApiKey
-  gameApiKey:string = jsonData.GameApiKey
+  apitoken: string = jsonData.MovieApiToken;
+  apikey: string = jsonData.MovieApiKey;
+  gameApiKey: string = jsonData.GameApiKey;
 
-  inputNomeDoFilme:string = ""
-  labelNomeDoFilme:string = ""
-  labelDataDoFilme:string = ""
-  labelDescricaoDoFilme:string = ""
+  inputNomeDoFilme: string = '';
+  labelNomeDoFilme: string = 'pixel';
+  labelDataDoFilme: string = '';
+  labelDescricaoDoFilme: string = '';
+  srcImagem: string = '';
 
   ngOnInit(): void {
-    console.log("eh nois");
-  } 
-
-  buscarFilme(): void{
-    console.log(this.inputNomeDoFilme)
+    console.log('eh nois');
   }
+
+  // buscarFilme(): void{
+  //   console.log(this.inputNomeDoFilme)
+  // }
 
   //API aberta de livros: descobrir como pegar as capas >>> https://openlibrary.org/search.json?q=rings
 
-  // async buscarFilme() {
-  //     moviepath = `https://api.themoviedb.org/3/search/movie?query=${this.inputNomeDoFilme}&include_adult=false&language=pt-BR&page=1`
-  //     var posterurl = "https://image.tmdb.org/t/p/w500/"
-  //     const options = {
-  //         method: "GET",
-  //         headers: { accept: "application/json", Authorization: apitoken }
-  //     };
+  buscarFilme() {
+    var moviepath = `https://api.themoviedb.org/3/search/movie?query=${this.inputNomeDoFilme}&include_adult=false&language=pt-BR&page=1`;
+    const options = {
+      method: 'GET',
+      headers: { accept: 'application/json', Authorization: this.apitoken },
+    };
+    fetch(moviepath, options).then((response) =>
+      return response.json() //usar http client module AMANHA
+    );
+  }
 
-  //     const response = await fetch(moviepath, options)
-  //     const data = await response.json()
+  buscarFilmeService(data: any) {
+    var posterurl = 'https://image.tmdb.org/t/p/w500/';
+    this.labelNomeDoFilme = data.results[0].title; //Seta o nome do filme
+    this.labelDataDoFilme = data.results[0].release_date.split('-')[0];
+    var posterpath = data.results[0].poster_path;
+    const poster = posterurl + posterpath;
 
-  //     document.getElementById("LabelNomeDoFilme").innerText = data["results"][0]["title"] //Seta o nome do filme
-  //     document.getElementById("LabelDataDoFilme").innerText = data["results"][0]["release_date"].split("-")[0]
-  //     var posterpath = data["results"][0]["poster_path"]
-  //     const poster = posterurl + posterpath
+    this.srcImagem = poster;
 
-  //     document.getElementById("CapaFilme").src = poster
-
-  //     var descricao = data["results"][0]["overview"]
-  //     document.getElementById("LabelDescricaoDoFilme").innerText = descricao
-  //     console.log(data)
-  // }
+    var descricao = data.results[0].overview;
+    this.labelDescricaoDoFilme = descricao;
+    console.log(this.labelNomeDoFilme);
+  }
 
   // async buscarSerie() {
   //     var nomeDaSerie = document.getElementById("InputNomeDoFilme").value //Pega o nome do filme da caixa de texto
@@ -101,5 +102,4 @@ export class HomeComponent implements OnInit {
   //     document.getElementById("LabelDescricaoDoFilme").innerText = "Nessa api, jogo nao tem descrição"
   //     console.log(data)
   // }
-
 }

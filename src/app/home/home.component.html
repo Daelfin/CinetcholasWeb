@@ -1,10 +1,10 @@
 <div style="max-width: 500px; margin: auto; display: grid; place-items: center;" onload="onLoad()">
     <h1 style="text-align: center;">Capa do filme vem aqui</h1>
-    <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src="" id="CapaFilme"/>
-    <h2 style="text-align: center;">{{labelNomeDoFilme}}</h2>
+    <img style="display: block; margin-left: auto; margin-right: auto; width: 50%;" src={{srcImagem}}/>
+    <span>{{labelNomeDoFilme}}</span>
     <h3 style="text-align: center;" >{{labelDataDoFilme}}</h3>
     <h4 style="text-align: center;" >{{labelDescricaoDoFilme}}</h4>
-    <input [value]="[(inputNomeDoFilme)]"/>
+    <input [(ngModel)]="inputNomeDoFilme"/>
     <br>
     <button type="button" (click)="buscarFilme()">Buscar Filme</button>
     <br>
