@@ -5,10 +5,10 @@ import { CadastroFilmeComponent } from './cadastro-filme/cadastro-filme.componen
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'home', component: HomeComponent},
-    {path: 'filmes', component: FilmesComponent},
-    {path: 'cadastro-filmes', component: CadastroFilmeComponent},
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: '**', redirectTo: '/home'}
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'filmes', component: FilmesComponent },
+  { path: 'cadastro-filmes', component: CadastroFilmeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home' },
 ];

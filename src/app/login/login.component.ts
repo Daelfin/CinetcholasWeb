@@ -9,21 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [FormsModule, HttpClientModule],
   providers: [LoginService],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor (private loginService: LoginService) {}
-  login = "";
-  senha = "";
-
+  constructor(private loginService: LoginService) {}
+  login = '';
+  senha = '';
 
   logar() {
-    this. loginService
-    .logar(this.login, this.senha)
-    .subscribe()
-  }
-
-  cadastro(){
-
+    this.loginService
+      .logar(this.login, this.senha)
+      .subscribe((retorno) => console.log(retorno));
   }
 }
