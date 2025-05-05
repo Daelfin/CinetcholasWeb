@@ -1,12 +1,11 @@
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './../services/login/login.service';
 import { Component } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -19,6 +18,5 @@ export class LoginComponent {
   logar() {
     this.loginService
       .logar(this.login, this.senha)
-      .subscribe((retorno) => console.log(retorno));
   }
 }

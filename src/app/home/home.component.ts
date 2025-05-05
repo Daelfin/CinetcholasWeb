@@ -1,13 +1,12 @@
 import { ConsultaAPIService } from './../services/consulta-api/consulta-api.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule],
   providers: [ConsultaAPIService],
   templateUrl: `./home.component.html`,
   styleUrl: './home.component.css',
